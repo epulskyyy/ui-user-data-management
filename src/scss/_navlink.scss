@@ -1,0 +1,124 @@
+.link {
+  @include sa-flex-center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 10px 20px;
+  text-decoration: none !important;
+  color: black;
+
+  &__right,
+  &__left,
+  &__right-left,
+  &__middle {
+    transition: all 0.2s ease-in-out 0s;
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      width: 0;
+      bottom: 0;
+      height: 3px;
+    }
+    &::before {
+      transition: all 0.2s ease-in-out 0.2s;
+    }
+    &::after {
+      transition: all 0.2s ease-in-out 0s;
+    }
+    &:hover,
+    &.active {
+      &::before {
+        width: 100%;
+        transition: all 0.2s ease-in-out 0s;
+      }
+      &::after {
+        transition: all 0.2s ease-in-out 0.2s;
+        width: 100%;
+      }
+    }
+  }
+  &__right {
+    &::before,
+    &::after {
+      right: 0;
+    }
+  }
+  &__right-left {
+    &::after {
+      right: 0;
+    }
+    &::before {
+      left: 0;
+    }
+  }
+  &__left {
+    &::before,
+    &::after {
+      left: 0;
+    }
+  }
+  &__middle {
+    &::before,
+    &::after {
+      bottom: 0;
+    }
+  }
+
+  &.link-green {
+    color: $green1;
+
+    &::before {
+      background-color: $green6;
+    }
+    &::after {
+      background-color: $green1;
+    }
+    &:hover,
+    &.active {
+      color: $green6;
+    }
+  }
+  &.link-blue {
+    color: $blue2;
+
+    &::before {
+      background-color: $blue3;
+    }
+    &::after {
+      background-color: $blue2;
+    }
+    &:hover,
+    &.active {
+      color: $blue3;
+    }
+  }
+  &.link-red {
+    color: $red4;
+
+    &::before {
+      background-color: $red2;
+    }
+    &::after {
+      background-color: $red4;
+    }
+    &:hover,
+    &.active {
+      color: $red2;
+    }
+  }
+  &.link-yellow {
+    color: $yellow4;
+
+    &::before {
+      background-color: $yellow3;
+    }
+    &::after {
+      background-color: $yellow4;
+    }
+    &:hover,
+    &.active {
+      color: $yellow3;
+    }
+  }
+}

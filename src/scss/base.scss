@@ -1,0 +1,140 @@
+//Importing bootstrap sass
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+$primary: #23418f;
+$secondary: #424242;
+$success: #369e1c;
+$info: #00a6dd;
+$warning: #ffbb00;
+$danger: #e23718;
+
+$theme-colors: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $danger,
+);
+
+//green palette
+$green1: #28df99;
+$green2: #99f3bd;
+$green3: #d2f6c5;
+$green4: #f6f7d4;
+$green5: #f1fff6;
+$green6: #24ad79;
+
+//blue pallete
+$blue1: #e6eff6;
+$blue2: #89b4c4;
+$blue3: #548999;
+
+//yellow pallete
+$yellow1: #ba954b;
+$yellow2: #e8ba5e;
+$yellow3: #ffd074;
+$yellow4: #ffde9e;
+$yellow5: #fff1d5;
+
+//red pallete
+$red1: #b9463e;
+$red2: #e7574e;
+$red3: #fe7c73;
+$red4: #fea7a2;
+$red5: #fec4c1;
+
+@mixin gradient1 {
+  background: rgb(16, 139, 92);
+  background: linear-gradient(
+    49deg,
+    rgba(16, 139, 92, 1) 0%,
+    rgba(40, 223, 153, 1) 100%
+  );
+}
+.card {
+  box-shadow: none;
+}
+@mixin shadow {
+  -webkit-box-shadow: 1px 1px 12px -7px #5b5b5b;
+  box-shadow: 1px 1px 12px -7px #5b5b5b;
+}
+.shadow {
+  @include shadow;
+}
+* {
+  font-family: 'Roboto', sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: rgb(250, 250, 250);
+}
+@mixin sa-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin sa-flex-center-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bg-cs-green {
+  color: white;
+  background-color: $green6;
+}
+.bg-cs-green-grad {
+  color: white;
+  @include gradient1;
+}
+
+.bg-cs-blue {
+  color: white;
+  background-color: $blue3;
+}
+
+.bg-cs-red {
+  color: white;
+  background-color: $red2;
+}
+
+.bg-cs-yellow {
+  color: white;
+  background-color: $yellow3;
+}
+
+.bounce {
+  animation: bounce 0.3s ease-in-out;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(0);
+  }
+  90% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.text-green {
+  color: $green6;
+}
+
+.text-blue {
+  color: $blue3;
+}
+
+.text-red {
+  color: $red2;
+}
+
+.text-yellow {
+  color: $yellow3;
+}
+@import 'button';
+@import 'form';
+@import 'tooltip';

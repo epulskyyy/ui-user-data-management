@@ -1,0 +1,168 @@
+@import '../../../../scss/base.scss';
+@import '../../../../scss/navlink';
+.page-navbar {
+  width: 100% !important;
+  padding: 15px;
+  margin-bottom: 20px;
+  @include sa-flex-center-between;
+  background-color: white;
+  border-radius: 15px;
+  @include shadow;
+  &__right,
+  &__left {
+    display: flex;
+    align-items: center;
+    .btn.hide {
+      display: none;
+    }
+  }
+  &__right {
+    &__item {
+      margin-right: 10px;
+      a {
+        color: black;
+        text-decoration: none;
+        &:hover {
+          color: $green6;
+        }
+      }
+    }
+    &__user {
+      display: flex;
+      .page_nav_right {
+        margin-right: 5px;
+      }
+      .user-title {
+        h5:nth-child(1) {
+          align-items: center;
+          margin: 0;
+          text-align: right;
+          font-weight: bold;
+          font-size: 15px;
+          margin-bottom: 3px;
+          text-transform: capitalize;
+        }
+        h5:nth-child(2) {
+          align-items: center;
+          margin: 0;
+          text-align: right;
+          letter-spacing: 1px;
+          font-size: 10px;
+          text-transform: capitalize;
+        }
+      }
+      .user-image {
+        height: 35px;
+        width: 35px;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+@media (max-width: 411px) {
+  #sidebar-show {
+    display: block;
+  }
+}
+.page-navbar__collapse {
+  display: none;
+}
+
+@media (max-width: 411px) {
+  .page-navbar__right {
+    display: none;
+  }
+  .page-navbar__collapse {
+    display: block;
+    &__body {
+      position: fixed;
+      opacity: 0;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background-color: rgb(98, 226, 156);
+      clip-path: circle(5% at top right);
+      transition: opacity 0.4s ease-in-out, clip-path 0.5s ease-in-out;
+      z-index: 7;
+      padding: 20px;
+    }
+    // &__body.open {
+    &__body.open {
+      opacity: 1;
+      clip-path: circle(100% at center);
+    }
+  }
+  .collapse_close {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .collpase_items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .collapse_item {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 10px;
+    a {
+      height: 100%;
+      width: 100%;
+      position: relative;
+      color: black;
+      display: flex;
+      align-items: center;
+      background-color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      @include shadow;
+      padding: 15px 25px;
+      &::before {
+        position: absolute;
+        content: '';
+        width: 10px;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgb(0, 128, 85);
+      }
+      &:hover,
+      &:active {
+        color: $green6;
+      }
+    }
+    &__user {
+      .user-image {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+    }
+    h5 {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      &:nth-child(2) {
+        font-size: 18px;
+        font-style: none;
+      }
+    }
+    &__sign-out {
+      @include sa-flex-center-between;
+    }
+  }
+
+  @keyframes navbar-collapse {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      border-radius: none;
+      transform: scale(1);
+    }
+  }
+}

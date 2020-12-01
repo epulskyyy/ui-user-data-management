@@ -1,0 +1,180 @@
+@import '../../../../scss/base.scss';
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @include gradient1;
+  border-radius: 10px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $green6;
+}
+.sidebar {
+  z-index: 5;
+  position: fixed;
+  height: 100%;
+  width: 250px;
+  background-color: white;
+  @include shadow;
+  padding: 20px;
+
+  transform: translateX(0);
+  transition: all 0.5s ease-in-out;
+  &-header {
+    @include sa-flex-center-between;
+    height: 60px;
+    width: 100%;
+    &__title {
+      @include sa-flex-center;
+      color: $green1;
+      h3 {
+        font-weight: bold;
+        padding: 0;
+        margin: 0;
+      }
+    }
+    &__close {
+      .sidebar-close {
+        border: none;
+        background: none;
+        color: $green1;
+        font-size: 20px;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+  &-body {
+    position: relative;
+    height: 90%;
+    padding-right: 20px;
+    overflow: auto !important;
+    ul {
+      overflow: auto;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .list-item {
+      height: 100%;
+      width: 100%;
+      margin-bottom: 10px;
+      .list-separator {
+        height: 100%;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        background-color: white;
+        z-index: 1;
+        font-size: 12px;
+        width: 100%;
+        border-bottom: solid 2px $green1;
+        margin-top: 5px;
+        color: rgb(211, 211, 211);
+      }
+    }
+    .link-item {
+      position: relative !important;
+      text-transform: capitalize;
+      letter-spacing: 1px;
+      display: flex;
+      font-size: 14px !important;
+      text-decoration: none;
+      color: rgb(131, 131, 131);
+      height: inherit !important;
+      width: 100%;
+      margin: 0;
+      padding: 10px 0;
+      transition: all 0.3s ease-out;
+      border-radius: 5px;
+      justify-content: flex-start !important;
+      span {
+        position: relative;
+        z-index: 1 !important;
+      }
+
+      &__icon {
+        color: rgb(131, 131, 131);
+        align-items: center;
+        text-align: center;
+        width: 20px;
+        margin-right: 10px;
+      }
+      &::before,
+      &::after {
+        border-radius: 5px;
+
+        top: 0;
+        position: absolute;
+        content: '';
+        height: 100%;
+        width: 0px;
+      }
+
+      &::before {
+        right: 0;
+        background-color: $green1;
+        transition: all 0.2s linear 0.2s;
+      }
+      &::after {
+        left: 0;
+        background-color: $green6;
+        transition: all 0.2s linear 0s;
+      }
+      &:hover,
+      &.active {
+        color: white !important;
+        &::before {
+          transition: all 0.2s linear 0s;
+          width: 100%;
+          z-index: -1;
+        }
+        &::after {
+          transition: all 0.2s linear 0.2s;
+          width: 100%;
+          z-index: -1;
+        }
+      }
+      &:hover .link-item__icon,
+      &.active .link-item__icon {
+        color: white;
+      }
+    }
+  }
+}
+
+.sidebar.hide {
+  transform: translateX(-100%);
+  transition: all 0.5s ease-in-out;
+}
+.backdrop {
+  z-index: 4;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.backdrop.hide {
+  display: none;
+}
+.backdrop.open {
+  display: none;
+}
+@media (max-width: 411px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: all 0.5s ease-in-out;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+    transition: all 0.5s ease-in-out;
+  }
+  .backdrop.open {
+    display: block;
+  }
+}

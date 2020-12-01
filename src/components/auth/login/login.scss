@@ -1,0 +1,162 @@
+@import '../../../scss/base.scss';
+@import '../../../scss/form';
+.btn-cus-red {
+  background: darken($red, 1.5%);
+}
+.btn-cus-blue {
+  background: darken(rgba(123, 83, 253, 1), 1.5%);
+}
+.btn-cus {
+  display: block;
+  color: white;
+  cursor: pointer;
+  border: none;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 45px;
+  max-width: 160px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100%;
+  background-color: $green6;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+.btn-cus-1 {
+  font-weight: 100;
+
+  svg {
+    height: 45px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  rect {
+    fill: none;
+    stroke: rgb(3, 95, 57);
+    stroke-width: 2;
+    stroke-dasharray: 422, 0;
+    transition: all 0.35s linear;
+  }
+}
+
+.btn-cus-1:hover {
+  background: rgba($red, 0);
+  font-weight: 900;
+  color: $green6;
+  letter-spacing: 1px;
+
+  rect {
+    stroke-width: 5;
+    stroke-dasharray: 15, 310;
+    stroke-dashoffset: 48;
+    transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+}
+
+.login-container {
+  @include sa-flex-center;
+  height: 100vh;
+  width: 100vw;
+  background-color: $green5;
+}
+.login-card {
+  display: flex;
+  height: 70%;
+  width: 80%;
+  -webkit-box-shadow: 1px 1px 35px -11px rgba(91, 91, 91, 0.55);
+  box-shadow: 1px 1px 35px -11px rgba(91, 91, 91, 0.55);
+  &__left {
+    position: relative;
+    width: 40%;
+    height: 100%;
+    border-left-style: solid;
+    border-left-width: 20px;
+    border-left-color: $green1;
+    &__container {
+      height: 100%;
+      width: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background: url('https://images.unsplash.com/photo-1544511916-0148ccdeb877?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1901&q=80i');
+      &::after {
+        content: '';
+        position: absolute;
+        background-color: black;
+        opacity: 0.4;
+        height: inherit;
+        width: inherit;
+        top: 0;
+      }
+    }
+    &__title {
+      position: relative;
+      padding-top: 10%;
+      padding-left: 20px;
+      text-align: center;
+      width: 100%;
+      z-index: 1;
+      h5 {
+        letter-spacing: 10px;
+        color: white;
+        align-items: center;
+        font-size: 30px;
+      }
+    }
+  }
+  &__right {
+    width: 60%;
+    background-color: white;
+    text-align: center;
+    &__form {
+      padding: 6% 20%;
+    }
+    &__title {
+      color: $green6;
+      letter-spacing: 8px;
+      font-size: 30px;
+      padding: 3% 0;
+    }
+  }
+}
+
+@media (max-width: 411px) {
+  .login-card {
+    &__left {
+      display: none;
+    }
+    &__right {
+      width: 100%;
+      border-top-style: solid;
+      border-top-width: 20px;
+      border-top-color: $green1;
+      &__form {
+        padding: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .login-card {
+    &__left {
+      &__title {
+        text-align: right;
+        h5 {
+          font-size: 20px;
+        }
+      }
+    }
+    &__right {
+      &__form {
+        padding: 0;
+      }
+    }
+  }
+}

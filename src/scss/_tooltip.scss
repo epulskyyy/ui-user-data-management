@@ -1,0 +1,124 @@
+span[data-toggle='tooltip'],
+button[data-toggle='tooltip'],
+a[data-toggle='tooltip'] {
+  position: inherit;
+  width: initial !important;
+  display: inherit;
+  &::before {
+    pointer-events: none;
+    display: none;
+    position: absolute;
+    content: attr(data-title);
+    font-size: 15px;
+    padding: 5px;
+    background-color: black;
+    color: white;
+    border-radius: 7px;
+    z-index: 8;
+  }
+
+  &[data-placement='top'] {
+    &::before {
+      top: 0;
+      left: 0;
+    }
+    &::after {
+      left: 6px;
+      bottom: -7px;
+    }
+    &:hover {
+      &::before {
+        top: -50px;
+      }
+      &::after {
+        bottom: 45px;
+      }
+    }
+  }
+  &[data-placement='bottom'] {
+    &::before {
+      top: 0;
+      right: 0;
+    }
+    &::after {
+      right: 6px;
+      top: 7px;
+    }
+    &:hover {
+      &::before {
+        top: 50px;
+      }
+      &::after {
+        top: 45px;
+      }
+    }
+  }
+  &[data-placement='right'] {
+    &::before {
+      top: 0;
+      left: 0;
+    }
+    &::after {
+      left: -6%;
+      top: 7px;
+    }
+    &:hover {
+      &::before {
+        left: 70px;
+      }
+      &::after {
+        left: 65px;
+      }
+    }
+  }
+  &[data-placement='bottom'],
+  &[data-placement='top'],
+  &[data-placement='right'] {
+    &::after {
+      pointer-events: none;
+      display: none;
+      position: absolute;
+      content: '';
+      height: 20px;
+      width: 20px;
+      transform: rotate(45deg);
+      background-color: black;
+    }
+    &::before {
+    }
+  }
+  &:hover {
+    &::before {
+      display: inline-block;
+      animation: tooltipBody 0.3s ease-in-out;
+    }
+    &[data-placement='bottom'],
+    &[data-placement='top'],
+    &[data-placement='right'] {
+      &::after {
+        animation: tooltipArrow 0.3s ease-in-out 0.1s backwards;
+        display: inline-block;
+      }
+    }
+  }
+  @keyframes tooltipBody {
+    0% {
+      opacity: 0;
+      transform: scale(0) translateX(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateX(1);
+    }
+  }
+  @keyframes tooltipArrow {
+    0% {
+      opacity: 0;
+      transform: scale(0) rotate(45deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(45deg);
+    }
+  }
+}

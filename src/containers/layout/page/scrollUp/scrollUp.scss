@@ -1,0 +1,12 @@
+.scroll-up {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  transform: translateY(200%);
+  transition: transform 0.3s ease-in-out;
+}
+.scroll-up.up {
+  transform: translateY(0);
+}

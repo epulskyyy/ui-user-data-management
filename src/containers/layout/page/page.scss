@@ -1,0 +1,31 @@
+.container-page {
+  width: 100%;
+  padding: 20px;
+  padding-left: 270px;
+  transition: all 0.5s ease-in-out;
+}
+.container-page.hide {
+  padding-left: 20px;
+  transition: all 0.5s ease-in-out;
+}
+
+@media (max-width: 411px) {
+  .container-page {
+    position: relative;
+    overflow: hidden;
+    padding-left: 20px;
+    transition: all 0.5s ease-in-out;
+    z-index: 2;
+    &::before {
+      position: fixed;
+      content: '';
+      height: 350px;
+      width: 500px;
+      background-color: rgb(25, 226, 159);
+      top: -190px;
+      left: -45px;
+      border-radius: 40%;
+      z-index: -1;
+    }
+  }
+}

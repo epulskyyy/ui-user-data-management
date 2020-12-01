@@ -1,0 +1,260 @@
+.sa-btn {
+  position: relative;
+  overflow: hidden;
+  text-transform: capitalize;
+  display: flex;
+  font-size: 14px !important;
+  text-decoration: none;
+  color: rgb(66, 66, 66);
+  padding: 5px !important;
+  height: inherit !important;
+  margin: 0;
+  padding: 10px 0;
+  transition: all 0.3s ease-out;
+  border-radius: 5px;
+  justify-content: center;
+  @include shadow;
+  z-index: 2;
+  &::before,
+  &::after {
+    border-radius: 5px;
+    position: absolute;
+    content: '';
+  }
+  &:hover,
+  &.active {
+    color: white !important;
+    &::before {
+      z-index: -1;
+    }
+    &::after {
+      z-index: -1;
+    }
+  }
+}
+
+.sa-btn.sa-btn-right,
+.sa-btn.sa-btn-left,
+.sa-btn.sa-btn-right-left,
+.sa-btn.sa-btn-bottom,
+.sa-btn.sa-btn-top,
+.sa-btn.sa-btn.sa-btn-top-bottom,
+.sa-btn.sa-btn.sa-btn-top-left,
+.sa-btn.sa-btn.sa-btn-top-right,
+.sa-btn.sa-btn.sa-btn-bottom-left,
+.sa-btn.sa-btn.sa-btn-bottom-right {
+  &::before {
+    transition: all 0.2s ease-in-out 0.2s;
+  }
+  &::after {
+    transition: all 0.2s ease-in-out 0s;
+  }
+  &:hover,
+  &.active {
+    &::before {
+      transition: all 0.2s ease-in-out 0s;
+    }
+    &::after {
+      transition: all 0.2s ease-in-out 0.2s;
+    }
+  }
+}
+.sa-btn.sa-btn-right,
+.sa-btn.sa-btn.sa-btn-right-left,
+.sa-btn.sa-btn-left {
+  &::before,
+  &::after {
+    height: 100%;
+    width: 0px;
+    top: 0;
+  }
+  &:hover,
+  &.active {
+    &::before {
+      width: 100%;
+    }
+    &::after {
+      width: 100%;
+    }
+  }
+}
+.sa-btn.sa-btn-right {
+  &::before,
+  &::after {
+    right: 0;
+  }
+}
+.sa-btn.sa-btn-left {
+  &::before,
+  &::after {
+    left: 0;
+  }
+}
+
+.sa-btn.sa-btn-right-left {
+  &::before {
+    right: 0;
+  }
+  &::after {
+    left: 0;
+  }
+}
+
+.sa-btn.sa-btn-bottom,
+.sa-btn.sa-btn-top,
+.sa-btn.sa-btn-top-bottom {
+  &::before,
+  &::after {
+    height: 0px;
+    width: 100%;
+    left: 0;
+  }
+  &:hover,
+  &.active {
+    &::before {
+      height: 100%;
+    }
+    &::after {
+      height: 100%;
+    }
+  }
+}
+.sa-btn.sa-btn-bottom {
+  &::before,
+  &::after {
+    bottom: 0;
+  }
+}
+.sa-btn.sa-btn-top {
+  &::before,
+  &::after {
+    top: 0;
+  }
+}
+
+.sa-btn.sa-btn.sa-btn-top-bottom {
+  &::before {
+    bottom: 0;
+  }
+  &::after {
+    top: 0;
+  }
+}
+.sa-btn.sa-btn-top-left,
+.sa-btn.sa-btn-top-right,
+.sa-btn.sa-btn-bottom-left,
+.sa-btn.sa-btn-bottom-right {
+  &::before,
+  &::after {
+    height: 0px;
+    width: 0px;
+  }
+  &:hover,
+  &.active {
+    &::before {
+      height: 100%;
+      width: 100%;
+    }
+    &::after {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+.sa-btn.sa-btn-top-left {
+  &::before,
+  &::after {
+    top: 0;
+    left: 0;
+  }
+}
+.sa-btn.sa-btn-top-right {
+  &::before,
+  &::after {
+    top: 0;
+    right: 0;
+  }
+}
+.sa-btn.sa-btn-bottom-left {
+  &::before,
+  &::after {
+    bottom: 0;
+    left: 0;
+  }
+}
+.sa-btn.sa-btn-bottom-right {
+  &::before,
+  &::after {
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.sa-btn.sa-btn-green {
+  border: solid 1px $green6;
+
+  &::before {
+    background-color: $green1;
+  }
+  &::after {
+    background-color: $green6;
+  }
+}
+
+.sa-btn.sa-btn-blue {
+  border: solid 1px $blue3;
+
+  &::before {
+    background-color: $blue2;
+  }
+  &::after {
+    background-color: $blue3;
+  }
+}
+.sa-btn.sa-btn-red {
+  border: solid 1px $red2;
+  &::before {
+    background-color: $red4;
+  }
+  &::after {
+    background-color: $red2;
+  }
+}
+.sa-btn.sa-btn-yellow {
+  border: solid 1px $yellow3;
+
+  &::before {
+    background-color: $yellow4;
+  }
+  &::after {
+    background-color: $yellow3;
+  }
+}
+
+.sa-btn-cl.sa-btn-green {
+  background-color: $green1;
+  &:hover {
+    background-color: $green6;
+  }
+}
+
+.sa-btn-cl.sa-btn-blue {
+  background-color: $blue2;
+  &:hover {
+    background-color: $blue3;
+  }
+}
+
+.sa-btn-cl.sa-btn-red {
+  background-color: $red4;
+  &:hover {
+    background-color: $red2;
+  }
+}
+
+.sa-btn-cl.sa-btn-yellow {
+  background-color: $yellow4;
+  &:hover {
+    background-color: $yellow3;
+  }
+}
